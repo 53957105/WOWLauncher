@@ -7,7 +7,7 @@ using Launcher.HelpClasses;
 namespace Launcher
 {
     /// <summary>
-    /// Логика взаимодействия для Settings.xaml
+    /// 设置模块 Settings.xaml
     /// </summary>
     public partial class Settings
     {
@@ -58,7 +58,7 @@ namespace Launcher
         {
             var folder = new System.Windows.Forms.FolderBrowserDialog
             {
-                Description = @"Выберите папку с клиентом игры",
+                Description = @"选择客户端",
                 RootFolder = Environment.SpecialFolder.MyComputer,
                 ShowNewFolderButton = false
             };
@@ -71,17 +71,17 @@ namespace Launcher
                 Folder.Text = folderPath;
             }
             else
-            { MessageBox.Show("Файл \"Wow.exe\" не найден!\nПожалуйста выберите корректную папку с игрой!", "Ошибка выбора папки", MessageBoxButton.OK, MessageBoxImage.Error); }
+            { MessageBox.Show("文件 \"Wow.exe\" 没有找到!\n请重新选择目录!", "目录不正确", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
         private void ResetPath_Click(object sender, RoutedEventArgs e)
         {
-            Folder.Text = "Не задано";
+            Folder.Text = "选择目录";
         }
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите удалить все загруженные файлы сервера?", "Подтверждение удаления", MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("确定删除所有补丁?", "确认", MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 if (Owner is MainWindow m) m.DPatches();
             }

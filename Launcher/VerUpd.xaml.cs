@@ -9,7 +9,7 @@ using System.Windows.Input;
 namespace Launcher
 {
     /// <summary>
-    /// Логика взаимодействия для VerUpd.xaml
+    /// 版本升级模块 VerUpd.xaml
     /// </summary>
     public partial class VerUpd
     {

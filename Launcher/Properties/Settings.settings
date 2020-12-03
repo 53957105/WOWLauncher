@@ -3,22 +3,22 @@
   <Profiles />
   <Settings>
     <Setting Name="PatchDownloadURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://www.dropbox.com/s/9jwyy206xxw51gp/patchlist.txt?dl=1</Value>
+      <Value Profile="(Default)">http://wowlauncher.test/text_mod/patchlist.txt</Value>
     </Setting>
     <Setting Name="PatchToDelete" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://www.dropbox.com/s/gqhzb7q7igeu058/patchtodel.txt?dl=1</Value>
+      <Value Profile="(Default)">http://wowlauncher.test/text_mod/patchtodel.txt</Value>
     </Setting>
-    <Setting Name="LauncherVersionUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://www.dropbox.com/s/5mt8l6yygd21gzi/version.txt?dl=1</Value>
+    <Setting Name="launcherVersionUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://wowlauncher.test/text_mod/version.txt</Value>
     </Setting>
-    <Setting Name="LauncherNewsFileUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://www.dropbox.com/s/xl9sgprm0zpmbps/news.txt?dl=1</Value>
+    <Setting Name="launcherNewsFileUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://wowlauncher.test/text_mod/news.txt</Value>
     </Setting>
-    <Setting Name="LauncherUpdates" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://www.dropbox.com/s/xu0wubztqckn9fi/updates.txt?dl=1</Value>
+    <Setting Name="launcherUpdates" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://wowlauncher.test/text_mod/Updates.txt</Value>
     </Setting>
-    <Setting Name="RealmlistURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://www.dropbox.com/s/ufpb35ihbf23j2q/realmlist.txt?dl=1</Value>
+    <Setting Name="realmlistURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://wowlauncher.test/text_mod/realmlist.txt</Value>
     </Setting>
     <Setting Name="Login" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -30,7 +30,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="GameFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Не задано</Value>
+      <Value Profile="(Default)">选择目录</Value>
     </Setting>
     <Setting Name="ProgressBarType" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>

@@ -4,17 +4,17 @@
   <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
     <security>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-        <!-- Параметры манифеста UAC
-          При необходимости изменить уровень управления учетными записями Windows замените 
-          узел requestedExecutionLevel одним из следующих значений.
+        <!-- 参数清单 UAC
+          如果要更改帐户权限 Windows 更换 
+          节点 requestedExecutionLevel 的以下值.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-            Задание узла requestedExecutionLevel отключит виртуализацию файла и реестра.
-            Если виртуализацию файла и реестра нужно использовать для обратной 
-            совместимости, удалите узел requestedExecutionLevel.
+            设置节点 requestedExecutionLevel 禁用文件夹和注册表.
+            如果要将文件和注册表虚拟化用于反向兼容。
+            删除节点 requestedExecutionLevel.
         -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
@@ -23,25 +23,25 @@
 
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
     <application>
-      <!-- Список версий Windows, для работы с которыми предназначено данное приложение. 
-      Windows автоматически выберет наиболее совместимую среду.-->
+      <!-- Windows应用程序所针对的Windows版本列表。
+       Windows将自动选择最兼容的环境.-->
 
-      <!-- Если приложение предназначено для работы с Windows Vista, снимите комментарий со следующего узла supportedOS-->
+      <!-- 用Windows Vista，请取消选中以下节点 supportedOS-->
       <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}"></supportedOS>-->
 
-      <!-- Если приложение предназначено для работы с Windows 7, раскомментируйте следующий узел supportedOS-->
+      <!-- Windows 7, 请取消选中以下节点 supportedOS-->
       <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>-->
 
-      <!-- Если приложение предназначено для работы с Windows 8, снимите комментарий со следующего узла supportedOS-->
+      <!-- Windows 8, 请取消选中以下节点 supportedOS-->
       <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}"></supportedOS>-->
 
-      <!-- Если приложение предназначено для работы с Windows 8.1, раскомментируйте следующий узел supportedOS-->
+      <!--  Windows 8.1, 请取消选中以下节点 supportedOS-->
       <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/>-->
 
     </application>
   </compatibility>
 
-  <!-- Включите темы для общих элементов управления и диалоговых окон Windows (Windows XP и более поздние версии) -->
+  <!-- 包括常用控件 Windows (Windows XP 主题) -->
   <dependency>
     <dependentAssembly>
       <assemblyIdentity

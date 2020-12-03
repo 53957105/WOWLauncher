@@ -33,7 +33,7 @@
 
 
 
-    <!-- Простая кнопка повторения (SimpleRepeatButton) используется простой полосой прокрутки (SimpleScrollBar) для кнопок "Вверх" и "Вниз" -->
+    <!-- 按扭 (SimpleRepeatButton) 滚动条 (SimpleScrollBar) 上下" -->
     <Style x:Key="SimpleRepeatButton" TargetType="{x:Type RepeatButton}" BasedOn="{x:Null}">
         <Setter Property="Background" Value="#FFDFDFDF"/>
         <Setter Property="BorderBrush" Value="#FFDFDFDF"/>
@@ -55,7 +55,7 @@
         </Setter>
     </Style>
 
-    <!-- Простой ползунок: ползунок (Thumb) — перетаскиваемый элемент полосы прокрутки (Scrollbar) -->
+    <!-- 滑块 (Thumb) — 滚动条 (Scrollbar) -->
     <Style x:Key="SimpleThumbStyle" TargetType="{x:Type Thumb}" BasedOn="{x:Null}">
         <Setter Property="Template">
             <Setter.Value>
@@ -79,7 +79,7 @@
         </Setter>
     </Style>
 
-    <!-- Стиль "Простая кнопка повторения" (SimpleScrollRepeatButtonStyle): эта кнопка повторения (RepeatButton) используется над и под ползунком в полосе прокрутки. Они настраиваются прозрачными, чтобы их не было видно поверх полосы прокрутки -->
+    <!-- 风格按钮 (SimpleScrollRepeatButtonStyle): 按钮 (RepeatButton) 配置透明度 -->
     <Style x:Key="SimpleScrollRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -96,7 +96,7 @@
         </Setter>
     </Style>
 
-    <!-- Простая полоса прокрутки (SimpleScrollBar) использует элементы SimpleThumb, SimpleRepeatButton и SimpleScrollRepeatButton -->
+    <!-- 滚动条 (SimpleScrollBar) 使用模块 SimpleThumb, SimpleRepeatButton 和 SimpleScrollRepeatButton -->
 
     <Style TargetType="{x:Type ScrollBar}">
         <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
@@ -121,7 +121,7 @@
                             </Grid>
                         </RepeatButton>
 
-                        <!-- Дорожка (Track) — это особый контейнер для компоновки, который задает размеры ползунка и кнопок повторения, которые осуществляют прокрутку в одну или в другую сторону -->
+                        <!-- 路径 (Track) — 布局容器, 滑块大小，和容器大小, 滚动条 -->
                         <Track Grid.Row="1" x:Name="PART_Track" Orientation="Vertical" IsDirectionReversed="true">
                             <Track.Thumb>
                                 <Thumb Style="{DynamicResource SimpleThumbStyle}" Margin="2" Height="Auto" MinHeight="10" VerticalAlignment="Stretch"/>
@@ -142,22 +142,21 @@
                         </RepeatButton>
                     </Grid>
 
-                    <!-- Этот раздел использует единый шаблон для полосы прокрутки (ScrollBar) и поворачивает его в горизонтальное положение (Horizontal)
-					Он также изменяет команды, чтобы команды "Вверх" и "Вниз" заменялись командами "Влево" и "Вправо" -->
+                    <!-- 单个模块滚动条 (ScrollBar) 转到水平位 (Horizontal）并更改左右上下的位置" -->
                     <ControlTemplate.Triggers>
                         <Trigger Property="Orientation" Value="Horizontal">
 
-                            <!-- Поворот полосы прокрутки (ScrollBar) из вертикального в горизонтальное положение -->
+                            <!-- 旋转滚动 (ScrollBar) 垂直转水平 -->
                             <Setter Property="LayoutTransform" TargetName="GridRoot">
                                 <Setter.Value>
                                     <RotateTransform Angle="-90"/>
                                 </Setter.Value>
                             </Setter>
 
-                            <!-- Дорожка (Track) имеет внутреннюю привязку к ориентации (Orientation), поэтому необходимо повернуть ее обратно в вертикальное положение (Vertical) -->
+                            <!-- 路径 (Track) 内部参考方向 (Orientation), 转回垂直(Vertical) -->
                             <Setter TargetName="PART_Track" Property="Orientation" Value="Vertical"/>
 
-                            <!-- Изменение команд для их выполнения при горизонтальном положении -->
+                            <!-- 更改水平位置 -->
                             <Setter Property="Command" Value="ScrollBar.LineLeftCommand" TargetName="DecreaseRepeat"/>
                             <Setter Property="Command" Value="ScrollBar.LineRightCommand" TargetName="IncreaseRepeat"/>
                             <Setter Property="Command" Value="ScrollBar.PageLeftCommand" TargetName="PageDown"/>
@@ -190,7 +189,7 @@
                 <ControlTemplate TargetType="{x:Type ProgressBar}">
                     <Grid>
 
-                        <!-- Данный элемент управления Border — это дорожка. Ему должно быть присвоено имя PART_Track -->
+                        <!-- 控制 Border — 的大小和位置 PART_Track -->
                         <Border x:Name="PART_Track" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="1" ClipToBounds="True" Margin="0,4,0,4" Background="#0CFFFFFF" BorderBrush="#33FFFFFF"/>
 
 						<Border MinWidth="1" x:Name="PART_Indicator" HorizontalAlignment="Left" BorderThickness="0" CornerRadius="0.5" Width="Auto" Margin="1,5,1,5" Background="{TemplateBinding Foreground}"/>

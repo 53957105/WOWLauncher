@@ -110,7 +110,7 @@
     <Grid x:Name="LayoutRoot" Opacity="0.9">
         <Image Source="img/news_bg.jpg" Stretch="UniformToFill"/>
         <Label x:Name="NewsIndacatorLabel" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{Binding Foreground, ElementName=NewsControl}" FontFamily="Verdana" FontSize="18">
-            <TextBlock x:Name="NewsIndicatorText" Text="Загрузка новостей..." TextWrapping="Wrap"/>
+            <TextBlock x:Name="NewsIndicatorText" Text="正在加载..." TextWrapping="Wrap"/>
         </Label>
         <Grid x:Name="MainGrid" Background="#E5000000" Visibility="Hidden">
             <Image x:Name="NewsImageControl" />

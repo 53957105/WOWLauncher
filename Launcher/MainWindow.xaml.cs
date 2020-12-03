@@ -44,7 +44,7 @@ using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 namespace Launcher
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// 主窗口程序 MainWindow.xaml
     /// </summary>
     public partial class MainWindow
     {
@@ -242,7 +242,7 @@ namespace Launcher
                 //    _pListDel = Properties.Settings.Default.PatchToDelete;
                 default:
                     //TODO: CHANGE SERVER NAME AND CLIENT VERSION
-                    var result = MessageBox.Show("Для игры на сервере %SERVER-NAME% требуется клиент версии 3.3.5.12340! Поместите программу в корректную папку с игрой или укажите путь к папке!\n\nУказать путь сейчас?", "Ошибка версии клиента", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    var result = MessageBox.Show("版本号12340!版本不对!\n\n是不是少下了个wow.exe?", "客户端版本错误", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     TryToFindFolder(result);
                     break;
             }
@@ -313,7 +313,7 @@ namespace Launcher
         }
 
         /// <summary>
-        /// Load news to NewsLoader Control
+        /// 加载新闻
         /// </summary>
         private void LoadNews()
         {
@@ -324,7 +324,7 @@ namespace Launcher
         }
 		
         /// <summary>
-        /// Delete old patches or old eventual updates
+        /// 删除旧补丁或更新
         /// </summary>
         private void DeleteOldPatches()
         {
@@ -352,6 +352,12 @@ namespace Launcher
             LoadNews();
         }
 
+		/// <summary>
+        /// 设置更新列表路径
+        /// </summary>
+        /// <param name="item">下载更新</param>
+        /// <returns>Full path to downloadable file</returns>
+		
         private void SaveCurrentCompletedFiles()
         {
             using (var file = File.CreateText(_updatePath))
@@ -361,7 +367,7 @@ namespace Launcher
         }
 
         /// <summary>
-        /// Starts get update list for self or game client
+        /// 开始更新
         /// </summary>
         private void AutoUpdate()
         {
@@ -390,7 +396,7 @@ namespace Launcher
                 btn_play.IsEnabled = false;
                 TaskbarPlay.IsEnabled = false;
                 progress.Value = 0;
-                labelmsg.Content = "Инициализация...";
+                labelmsg.Content = "加载中...";
                 _count = 0;
                 startDownloadBackgroundWorker.RunWorkerAsync();
             }
@@ -604,7 +610,7 @@ namespace Launcher
         }
 
         /// <summary>
-        /// Downloading done dispatcher event
+        /// 更新完成后的事件
         /// </summary>
         /// <param name="visible">Show download accesories or not</param>
         private void DownloadCompleted(bool visible)
@@ -615,20 +621,20 @@ namespace Launcher
                 TaskbarProgress.ProgressState = TaskbarItemProgressState.Normal;
                 TaskbarPlay.IsEnabled = false;
                 btn_play.IsEnabled = false;
-                labelmsg.Content = "Идет обновление...";
+                labelmsg.Content = "正在更新...";
             }
             else
             {
                 DownloadBar.Visibility = Visibility.Hidden;
                 TaskbarProgress.ProgressState = TaskbarItemProgressState.None;
                 TaskbarPlay.IsEnabled = true;
-                labelmsg.Content = "Игра обновлена";
+                labelmsg.Content = "更新完成";
                 btn_play.IsEnabled = true;
             }
         }
 
         /// <summary>
-        /// Window moving event
+        /// 窗口移动事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -641,7 +647,7 @@ namespace Launcher
         }
 
         /// <summary>
-        /// Deleting all patches while whant leave server
+        /// 补丁和登陆器一起删除
         /// </summary>
         public void DPatches()
         {
@@ -670,13 +676,13 @@ namespace Launcher
 
             File.Delete(_updatePath);
 
-            MessageBox.Show("Все файлы успешно удалены", "Удаление файлов", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("所有文件己删除", "删除文件", MessageBoxButton.OK, MessageBoxImage.Information);
             btn_play.Visibility = Visibility.Hidden;
-            labelmsg.Content = "Запуск клиента невозможен";
+            labelmsg.Content = "客户端无法启动";
         }
 
         /// <summary>
-        /// Set download progress type like just total progress, just current progress, mixed progres
+        /// 设置下载进度，总进度，当年进度，混合进度。
         /// </summary>
         /// <param name="index"></param>
         public void SetProgressType(int index)
@@ -740,7 +746,7 @@ namespace Launcher
                         Visible = true
                     };
 
-                    ni.ShowBalloonTip(2000, "Программа запуска", "Программа запуска продолжает работать в фоновом режиме. Чтобы развернуть ее, используйте двойной щелчек левой кнопки мыши", ToolTipIcon.Info);
+                    ni.ShowBalloonTip(2000, "启动程序", "登陆器后台最小化运行，双击鼠标左键打开。", ToolTipIcon.Info);
                     Hide();
                     ni.DoubleClick +=
                         delegate
@@ -801,13 +807,13 @@ namespace Launcher
             {
                 MessageBox.Show(ex.Message);
 
-                if (ex.Message.Equals("Не удается найти указанный файл"))
+                if (ex.Message.Equals("找不到指定文件"))
                     ShowFolderDialog();
             }
         }
 
         /// <summary>
-        /// Show WindowDialog with blur effects
+        /// 错误提示等
         /// </summary>
         /// <param name="modalWindow">Modal window to show</param>
         private void ShowModalWithEffect (Window modalWindow)
@@ -821,7 +827,7 @@ namespace Launcher
             {
                 settings.BtnDel.IsEnabled = false;
                 settings.ResetPath.IsEnabled = false;
-                settings.BtnDel.ToolTip = "Не возможно выполнить\nво время процесса обновления";
+                settings.BtnDel.ToolTip = "无法执行\n正在更新中";
             }
 
             modalWindow.Owner = this;
@@ -849,22 +855,42 @@ namespace Launcher
             SetProgressType(Properties.Settings.Default.ProgressBarType);
         }
                 
-        private void link_main_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// 打开官网页面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void link_main_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://your-link.domain");
+            Process.Start("http://www.baidu.com");
         }
 
-        private void link_cabinet_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// 打开在线充值
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void link_cabinet_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://your-link.domain");
+            Process.Start("http://www.baidu.com");
         }
 
-        private void link_registration_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// 打开注册页面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void link_registration_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start("http://your-link.domain");
+            Process.Start("http://www.baidu.com");
         }
 
-        private void link_social_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// 加入QQ群页面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void link_social_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Process.Start("http://your-link.domain");
         }

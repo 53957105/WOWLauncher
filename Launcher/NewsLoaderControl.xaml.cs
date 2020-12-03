@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 namespace Launcher
 {
     /// <summary>
-    /// Логика взаимодействия для NewsLoaderControl.xaml
+    /// 新闻控制面板 NewsLoaderControl.xaml
     /// </summary>
     public partial class NewsLoaderControl
     {
@@ -70,9 +70,9 @@ namespace Launcher
         }
 
         /// <summary>
-        /// Смена отображаемой новости
+        /// 显示新闻变化
         /// </summary>
-        /// <param name="next">Если значение true то устанавливает следующим элементом LinkedListNode.Next</param>
+        /// <param name="next">如果为true,显示以下项目 LinkedListNode.Next</param>
         private void ChangeNewsItem(bool next)
         {
             if (next)
@@ -142,7 +142,7 @@ namespace Launcher
             }
             else
             {
-                NewsIndicatorText.Text = "Список новостей пуст";
+                NewsIndicatorText.Text = "新闻列表是空的";
                 ButtonArrowLeft.Visibility = Visibility.Hidden;
                 ButtonArrowRight.Visibility = Visibility.Hidden;
             }
